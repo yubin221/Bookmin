@@ -2,7 +2,7 @@ import shelve
 import pickle
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QLayout, QGridLayout, QDialog, QLabel, QSizePolicy, QLineEdit, QToolButton
-from 식당용UI import PasswordDB
+#from 식당용UI import PasswordDB
 
 
 class Button(QToolButton):

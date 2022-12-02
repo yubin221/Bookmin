@@ -17,8 +17,9 @@ class Person:
         else:
             self.congestionLevel = '혼잡'
 
-        print("식당내 인원수: " + self.var, end='')
-        print("혼잡도: " + self.congestionLevel)
+        self.complexityLevel = "식당내 인원수: " + self.var + "혼잡도: " + self.congestionLevel
+
+        return self.complexity
 
 if __name__ == '__main__':
     p = Person()

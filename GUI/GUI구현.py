@@ -49,10 +49,12 @@ class MainWindow(QMainWindow):
         font2.setPointSize(15)
         label2.setFont(font2)
 
+        #
         label2_2 = QLabel('오늘의 메뉴 정보출력 창', self)
         label2_2.move(20, 180)
         font2_2 = label2_2.font()
         label2_2.setFont(font2_2)
+        #
 
         label3 = QLabel('식당별 혼잡도', self)
         label3.move(20, 280)
@@ -60,10 +62,13 @@ class MainWindow(QMainWindow):
         font3.setPointSize(15)
         label3.setFont(font3)
 
-        label3_2 = QLabel('혼잡도 정보출력 창', self)
+        #혼잡도 출력==================================================================================================
+        label3_2 = QTextEdit()
+        label3_2.setText("test")
         label3_2.move(20, 320)
         font3_2 = label3_2.font()
         label3_2.setFont(font3_2)
+        #
 
         vbox = QVBoxLayout()
         vbox.addWidget(label1)
