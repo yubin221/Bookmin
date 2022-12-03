@@ -6,6 +6,13 @@ from 가마SubWindow import 가마SubWindow
 from 누들송SubWindow import 누들송SubWindow
 from 인터쉐프SubWindow import 인터쉐프SubWindow
 from 데일리밥SubWindow import 데일리밥SubWindow
+from multiprocessing import Process
+from threading import Thread
+
+import sys, os
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+from Person.bookminPerson import Person
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -103,10 +110,16 @@ class Ui_MainWindow(object):
         self.complexityTitle.setText("식당 내 혼잡도")
 
         # 식당 내 혼잡도 출력 (TextEdit)
+        self.p = Person()
+
         self.complexity = QTextEdit(self.widget1)
         self.complexity.setLineWidth(1)
         self.complexity.setReadOnly(True)
         self.BookminVerticalLayout.addWidget(self.complexity)
+
+        self.complexity.setText(self.p.printPerson())
+
+        self.complexity.repaint()
 
         # 식당별 대기 인원 타이틀 (Label)
         self.watingTitle = QLabel(self.widget1)
@@ -223,11 +236,9 @@ class Ui_MainWindow(object):
             self.label.setText(text)
 
 if __name__ == "__main__":
-    import sys
     app = QApplication(sys.argv)
     MainWindow = QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
-
