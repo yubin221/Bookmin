@@ -3,7 +3,7 @@ import serial
 class Person:
 
     def __init__(self):
-        self.ser = serial.Serial("COM4", 1000000)
+        self.ser = serial.Serial("COM3", 1000000)
         self.var = ''
         self.congestionLevel = ''
 
@@ -18,8 +18,9 @@ class Person:
             self.congestionLevel = '혼잡'
 
         self.complexityLevel = "식당내 인원수: " + self.var + "혼잡도: " + self.congestionLevel
+        print(self.complexityLevel)
 
-        return self.complexity
+        return self.complexityLevel
 
 if __name__ == '__main__':
     p = Person()

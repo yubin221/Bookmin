@@ -27,7 +27,7 @@ class 데일리밥SubWindow(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        password = QLabel("Password: ")
+        password = QLabel("전화번호를 입력해 주세요: ")
 
         # 번호 입력 창
         self.display = QLineEdit()
