@@ -4,6 +4,7 @@ from 가마SubWindow import 가마SubWindow
 from 누들송SubWindow import 누들송SubWindow
 from 인터쉐프SubWindow import 인터쉐프SubWindow
 from 데일리밥SubWindow import 데일리밥SubWindow
+from crawlingclass import Crawling
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -136,6 +137,11 @@ class Ui_MainWindow(object):
         self.dailyBtn.setText("데일리밥")
         self.noodleBtn.setText("누들송(면)")
         self.bookBtn.setText("학교 시설 예약")
+        #self.gamaMenu.setText("Test")
+        self.gamaMenu.setText(Crawling().todayMenu("가마중식"))
+        self.noodleMenu.setText(Crawling().todayMenu("누들송(면)중식"))
+        self.interMenu.setText(Crawling().todayMenu("인터쉐프중식"))
+        self.dailyMenu.setText(Crawling().todayMenu("데일리밥중식"))
 
         self.bookBtn.clicked.connect(self.bookBtn_clicked)
         self.gamaBtn.clicked.connect(self.gamaBtn_clicked)
