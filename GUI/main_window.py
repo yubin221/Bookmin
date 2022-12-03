@@ -1,4 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import QSize
+from PyQt5.QtWidgets import *
 from SubWindow import SubWindow
 from 가마SubWindow import 가마SubWindow
 from 누들송SubWindow import 누들송SubWindow
@@ -8,140 +10,170 @@ from crawlingclass import Crawling
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        MainWindow.setMinimumSize(QtCore.QSize(1000, 600))
-        MainWindow.setMaximumSize(QtCore.QSize(1000, 600))
+        # 창 사이즈 강제 조정
+        MainWindow.setFixedSize(QSize(1000, 600))
 
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        # 메인 위젯 설정
+        self.centralwidget = QWidget(MainWindow)
 
-        self.widget = QtWidgets.QWidget(self.centralwidget)
-        self.widget.setGeometry(QtCore.QRect(10, 380, 981, 211))
+        # 공통 사이즈 정책
+        sizePolicy = QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
 
-        self.menuHorizontalLayout = QtWidgets.QHBoxLayout(self.widget)
+        # widget ==============================================================================
+        # widget 설정 (UI상 하단, 식당별 메뉴)
+        self.widget = QWidget(self.centralwidget)
+        self.widget.setGeometry(10, 380, 980, 210)
+
+        # 수평 레이아웃 생성 (widget 내부)
+        self.menuHorizontalLayout = QHBoxLayout(self.widget)
         self.menuHorizontalLayout.setContentsMargins(0, 0, 0, 0)
 
-        self.menuVerticalLayout = QtWidgets.QVBoxLayout()
-        self.gamaTitle = QtWidgets.QLabel(self.widget)
+        # 메뉴 수직1 레이아웃 (가마 title + 가마 메뉴 출력)
+        self.menuVerticalLayout = QVBoxLayout()
+        self.gamaTitle = QLabel(self.widget)
         self.menuVerticalLayout.addWidget(self.gamaTitle)
-        self.gamaMenu = QtWidgets.QTextEdit(self.widget)
+        self.gamaTitle.setText("가마")
+
+        self.gamaMenu = QTextEdit(self.widget)
         self.gamaMenu.setReadOnly(True)
         self.menuVerticalLayout.addWidget(self.gamaMenu)
         self.menuHorizontalLayout.addLayout(self.menuVerticalLayout)
 
-        self.menuVerticalLayout_2 = QtWidgets.QVBoxLayout()
-        self.noodleTitle = QtWidgets.QLabel(self.widget)
+        # 메뉴 수직2 레이아웃 (누들송 title + 누들송 메뉴 출력)
+        self.menuVerticalLayout_2 = QVBoxLayout()
+        self.noodleTitle = QLabel(self.widget)
         self.menuVerticalLayout_2.addWidget(self.noodleTitle)
-        self.noodleMenu = QtWidgets.QTextEdit(self.widget)
+        self.noodleTitle.setText("누들송(면)")
+
+        self.noodleMenu = QTextEdit(self.widget)
         self.noodleMenu.setReadOnly(True)
-        self.noodleMenu.setObjectName("noodleMenu")
         self.menuVerticalLayout_2.addWidget(self.noodleMenu)
         self.menuHorizontalLayout.addLayout(self.menuVerticalLayout_2)
 
-        self.menuVerticalLayout_3 = QtWidgets.QVBoxLayout()
-        self.interTitle = QtWidgets.QLabel(self.widget)
+        # 메뉴 수직3 레이아웃 (인터쉐프 title + 인터쉐프 메뉴 출력)
+        self.menuVerticalLayout_3 = QVBoxLayout()
+        self.interTitle = QLabel(self.widget)
         self.menuVerticalLayout_3.addWidget(self.interTitle)
-        self.interMenu = QtWidgets.QTextEdit(self.widget)
+        self.interTitle.setText("인터쉐프")
+
+        self.interMenu = QTextEdit(self.widget)
         self.interMenu.setReadOnly(True)
         self.menuVerticalLayout_3.addWidget(self.interMenu)
         self.menuHorizontalLayout.addLayout(self.menuVerticalLayout_3)
 
-        self.menuVerticalLayout_4 = QtWidgets.QVBoxLayout()
-        self.dailyTitle = QtWidgets.QLabel(self.widget)
+        # 메뉴 수직4 레이아웃 (데일리밥 title + 데일리밥 메뉴 출력)
+        self.menuVerticalLayout_4 = QVBoxLayout()
+        self.dailyTitle = QLabel(self.widget)
         self.menuVerticalLayout_4.addWidget(self.dailyTitle)
-        self.dailyMenu = QtWidgets.QTextEdit(self.widget)
+        self.dailyTitle.setText("데일리밥")
+
+        self.dailyMenu = QTextEdit(self.widget)
         self.dailyMenu.setReadOnly(True)
         self.menuVerticalLayout_4.addWidget(self.dailyMenu)
         self.menuHorizontalLayout.addLayout(self.menuVerticalLayout_4)
 
-        self.widget1 = QtWidgets.QWidget(self.centralwidget)
-        self.widget1.setGeometry(QtCore.QRect(10, 10, 381, 361))
+        # widget1 =============================================================================
+        # widget1 설정 (UI상 상단 왼쪽, 식당 내 혼잡도, 식당별 대기 인원)
+        self.widget1 = QWidget(self.centralwidget)
+        self.widget1.setGeometry(10, 10, 380, 360)
 
-        self.BookminVerticalLayout = QtWidgets.QVBoxLayout(self.widget1)
+        # 수직 레이아웃 설정 (Bookmin Vertical Layout)
+        self.BookminVerticalLayout = QVBoxLayout(self.widget1)
         self.BookminVerticalLayout.setContentsMargins(0, 0, 0, 0)
 
-        self.title = QtWidgets.QLabel(self.widget1)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        # 메인 타이틀 (Bookmin)
+        self.title = QLabel(self.widget1)
 
+        # 메인 타이틀 폰트, 사이즈 정책 설정
         self.title.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setPointSize(20)
         font.setBold(True)
         font.setWeight(75)
 
+        # 메인 타이틀 추가
         self.title.setFont(font)
         self.title.setLineWidth(1)
         self.title.setAlignment(QtCore.Qt.AlignCenter)
         self.BookminVerticalLayout.addWidget(self.title)
+        self.title.setText("Bookmin")
 
-        self.complexityTitle = QtWidgets.QLabel(self.widget1)
+        # 식당 내 혼잡도 타이틀 (Label)
+        self.complexityTitle = QLabel(self.widget1)
         self.BookminVerticalLayout.addWidget(self.complexityTitle)
+        self.complexityTitle.setText("식당 내 혼잡도")
 
-        self.complexity = QtWidgets.QTextEdit(self.widget1)
+        # 식당 내 혼잡도 출력 (TextEdit)
+        self.complexity = QTextEdit(self.widget1)
         self.complexity.setLineWidth(1)
         self.complexity.setReadOnly(True)
         self.BookminVerticalLayout.addWidget(self.complexity)
 
-        self.watingTitle = QtWidgets.QLabel(self.widget1)
+        # 식당별 대기 인원 타이틀 (Label)
+        self.watingTitle = QLabel(self.widget1)
         self.BookminVerticalLayout.addWidget(self.watingTitle)
+        self.watingTitle.setText("식당별 대기 인원")
 
-        self.gamaWaiting = QtWidgets.QLineEdit(self.widget1)
+        # 식당별 대기 인원 출력 (가마, 누들송, 인터쉐프, 데일리밥 순서)
+        self.gamaWaiting = QLineEdit(self.widget1)
         self.gamaWaiting.setReadOnly(True)
         self.BookminVerticalLayout.addWidget(self.gamaWaiting)
 
-        self.noodleWaiting = QtWidgets.QLineEdit(self.widget1)
+        self.noodleWaiting = QLineEdit(self.widget1)
         self.noodleWaiting.setReadOnly(True)
         self.BookminVerticalLayout.addWidget(self.noodleWaiting)
 
-        self.interWaiting = QtWidgets.QLineEdit(self.widget1)
+        self.interWaiting = QLineEdit(self.widget1)
         self.interWaiting.setReadOnly(True)
         self.BookminVerticalLayout.addWidget(self.interWaiting)
 
-        self.dailyWaiting = QtWidgets.QLineEdit(self.widget1)
+        self.dailyWaiting = QLineEdit(self.widget1)
         self.dailyWaiting.setReadOnly(True)
         self.BookminVerticalLayout.addWidget(self.dailyWaiting)
 
-        self.widget2 = QtWidgets.QWidget(self.centralwidget)
-        self.widget2.setGeometry(QtCore.QRect(400, 10, 591, 361))
+        # widget2 =============================================================================
+        # widget2 설정 (UI상 상단 오른쪽, 예약 버튼 모음)
+        self.widget2 = QWidget(self.centralwidget)
+        self.widget2.setGeometry(400, 10, 590, 360)
 
-        self.btnGridLayout = QtWidgets.QGridLayout(self.widget2)
+        # widget2 내부 그리드 레이아웃 생성
+        self.btnGridLayout = QGridLayout(self.widget2)
         self.btnGridLayout.setContentsMargins(0, 0, 0, 0)
 
-        self.gamaBtn = QtWidgets.QPushButton(self.widget2)
-        self.gamaBtn.setSizePolicy(sizePolicy)
-        self.btnGridLayout.addWidget(self.gamaBtn, 2, 0, 1, 1)
-
-        self.interBtn = QtWidgets.QPushButton(self.widget2)
-        self.interBtn.setSizePolicy(sizePolicy)
-        self.btnGridLayout.addWidget(self.interBtn, 3, 0, 1, 1)
-
-        self.dailyBtn = QtWidgets.QPushButton(self.widget2)
-        self.dailyBtn.setSizePolicy(sizePolicy)
-        self.btnGridLayout.addWidget(self.dailyBtn, 3, 1, 1, 1)
-
-        self.noodleBtn = QtWidgets.QPushButton(self.widget2)
-        self.noodleBtn.setSizePolicy(sizePolicy)
-        self.btnGridLayout.addWidget(self.noodleBtn, 2, 1, 1, 1)
-
-        self.bookBtn = QtWidgets.QPushButton(self.widget2)
+        # 학교 시설 예약 버튼
+        self.bookBtn = QPushButton(self.widget2)
         self.bookBtn.setSizePolicy(sizePolicy)
         self.btnGridLayout.addWidget(self.bookBtn, 1, 0, 1, 2)
-
-        self.gamaTitle.setText("가마")
-        self.noodleTitle.setText("누들송(면)")
-        self.interTitle.setText("인터쉐프")
-        self.dailyTitle.setText("데일리밥")
-        self.title.setText("Bookmin")
-        self.complexityTitle.setText("식당별 혼잡도")
-        self.watingTitle.setText("식당별 대기 인원")
-        self.gamaBtn.setText("가마")
-        self.interBtn.setText("인터쉐프")
-        self.dailyBtn.setText("데일리밥")
-        self.noodleBtn.setText("누들송(면)")
         self.bookBtn.setText("학교 시설 예약")
         #self.gamaMenu.setText("Test")
         self.gamaMenu.setText(Crawling().todayMenu("가마중식"))
         self.noodleMenu.setText(Crawling().todayMenu("누들송(면)중식"))
         self.interMenu.setText(Crawling().todayMenu("인터쉐프중식"))
         self.dailyMenu.setText(Crawling().todayMenu("데일리밥중식"))
+
+        # 가마 버튼
+        self.gamaBtn = QPushButton(self.widget2)
+        self.gamaBtn.setSizePolicy(sizePolicy)
+        self.btnGridLayout.addWidget(self.gamaBtn, 2, 0, 1, 1)
+        self.gamaBtn.setText("가마")
+
+        # 누들송 버튼
+        self.noodleBtn = QPushButton(self.widget2)
+        self.noodleBtn.setSizePolicy(sizePolicy)
+        self.btnGridLayout.addWidget(self.noodleBtn, 2, 1, 1, 1)
+        self.noodleBtn.setText("누들송(면)")
+
+        # 인터쉐프 버튼
+        self.interBtn = QPushButton(self.widget2)
+        self.interBtn.setSizePolicy(sizePolicy)
+        self.btnGridLayout.addWidget(self.interBtn, 3, 0, 1, 1)
+        self.interBtn.setText("인터쉐프")
+
+        # 데일리밥 버튼
+        self.dailyBtn = QPushButton(self.widget2)
+        self.dailyBtn.setSizePolicy(sizePolicy)
+        self.btnGridLayout.addWidget(self.dailyBtn, 3, 1, 1, 1)
+        self.dailyBtn.setText("데일리밥")
 
         self.bookBtn.clicked.connect(self.bookBtn_clicked)
         self.gamaBtn.clicked.connect(self.gamaBtn_clicked)
@@ -198,8 +230,8 @@ class Ui_MainWindow(object):
 
 if __name__ == "__main__":
     import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
+    app = QApplication(sys.argv)
+    MainWindow = QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()

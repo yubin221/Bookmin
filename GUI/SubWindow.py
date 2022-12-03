@@ -12,7 +12,7 @@ class SubWindow(QDialog):
         layout = QVBoxLayout()
 
         btn1 = QPushButton('도서관', self)
-        btn2 = QPushButton('카페?', self)
+        btn2 = QPushButton('카페', self)
         btn3 = QPushButton('운동장', self)
         btn4 = QPushButton('체육관', self)
         btn5 = QPushButton('빈 강의실', self)
@@ -89,7 +89,7 @@ class SubWindow(QDialog):
 
     def clicked_btn7(self):
         self.dialog = QDialog()
-        self.dialog.setWindowTitle(" ON 국민 로그인?? 예약")
+        self.dialog.setWindowTitle(" ON 국민 로그인")
         self.dialog.setWindowModality(Qt.ApplicationModal)
         self.dialog.resize(800, 500)
         self.dialog.show()
