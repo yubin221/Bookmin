@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="723a68d6-eacf-48d6-ae63-f90c83b9dd6c" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/GUI구현.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/GUI구현.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/SubWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/SubWindow.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/main_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/아두이노파이썬연결/Person/Person.ino" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/아두이노파이썬연결/Person/bookminPerson.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/가마SubWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/가마SubWindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/번호표 시스템/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/번호표시스템/manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/번호표 시스템/twilioTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/번호표시스템/twilioTest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/오늘의 메뉴/crawlingclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/오늘의메뉴/crawlingclass.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +40,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../국민대학교/소프트웨어프로젝트2/14" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.bookminPerson (1)">
+  <component name="RunManager" selected="Python.main_window">
     <configuration name="bookminPerson (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Bookmin" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -58,19 +62,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="bookminPerson" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="crawlingclass" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Bookmin" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\user\Anaconda3\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/아두이노파이썬연결/Person" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/오늘의 메뉴" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/아두이노파이썬연결/Person/bookminPerson.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/오늘의 메뉴/crawlingclass.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -92,6 +96,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/main_window.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Bookmin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/번호표시스템" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/번호표시스템/manager.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -123,10 +148,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.bookminPerson (1)" />
         <item itemvalue="Python.main_window" />
+        <item itemvalue="Python.crawlingclass" />
+        <item itemvalue="Python.manager" />
+        <item itemvalue="Python.bookminPerson (1)" />
         <item itemvalue="Python.printPerson" />
-        <item itemvalue="Python.bookminPerson" />
       </list>
     </recent_temporary>
   </component>

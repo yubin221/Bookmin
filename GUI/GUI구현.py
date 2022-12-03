@@ -43,14 +43,14 @@ class MainWindow(QMainWindow):
         label1.setFont(font1)
         font1.setBold(True)
 
-        label2 = QLabel('오늘의 메뉴', self)
+        label2 = QLabel('오늘의메뉴', self)
         label2.move(20, 120)
         font2 = label2.font()
         font2.setPointSize(15)
         label2.setFont(font2)
 
         #
-        label2_2 = QLabel('오늘의 메뉴 정보출력 창', self)
+        label2_2 = QLabel('오늘의메뉴 정보출력 창', self)
         label2_2.move(20, 180)
         font2_2 = label2_2.font()
         label2_2.setFont(font2_2)

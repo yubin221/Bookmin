@@ -1,4 +1,4 @@
-from twilioTest import TwilioSMS
+#from twilioTest import TwilioSMS
 
 class Manager:
     menu = dict()
@@ -7,7 +7,7 @@ class Manager:
         pass  # 크롤링한 메뉴 불러오는코드 필요함
 
     def __init__(self, name):
-        self.msgObj = TwilioSMS()
+        #self.msgObj = TwilioSMS()
         self.name = name
         self.currentNum = 0  # 현재 번호표
         self.callNum = 0  # 불러야하는 번호표
@@ -32,7 +32,7 @@ class Manager:
         if self.callNum < self.currentNum:
             self.callNum += 1
             message = str(self.callNum) + "번님 학식이 준비되었습니다."
-            self.msgObj.sendSMS(message)
+            #self.msgObj.sendSMS(message)
         else:
             print("대기자가 없습니다.")
 
@@ -42,7 +42,7 @@ class Manager:
 
     def requestWaitingPeople(self):
         message = "현재 대기자수는 " + str(self.getWaitingPeople()) +"명입니다."
-        self.msgObj.sendSMS(message)
+        #self.msgObj.sendSMS(message)
 
 if __name__ == "__main__":
     gome = Manager("고메")

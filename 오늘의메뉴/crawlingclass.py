@@ -10,7 +10,8 @@ class Crawling():
         self.food_table = []
 
     def weekDay(self):
-        return datetime.today().weekday()
+        #return datetime.today().weekday()
+        return 1 # @@@@@@@@ 테스트용 코드입니당 메뉴 확인 끝난 뒤 14번 라인 지워주고 13번 주석 활성화 해주세요 @@@@@@@
 
     def main(self):
         if self.response.status_code == 200:

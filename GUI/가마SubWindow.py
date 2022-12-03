@@ -83,8 +83,7 @@ class 가마SubWindow(QDialog):
         key = button.text()
 
         if key == 'Enter':
-            result = str(eval(self.display.text()))
-            self.display.setText(result)
+            self.gama.getNum()
         elif key == 'C':
             self.display.setText('')
         else:

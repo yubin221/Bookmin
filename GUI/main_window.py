@@ -12,10 +12,22 @@ from threading import Thread
 import sys, os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from Person.bookminPerson import Person
-
+from 번호표시스템.manager import *
+from 번호표시스템.twilioTest import *
+from 오늘의메뉴.crawlingclass import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
+        self.gama = Manager("가마")
+        self.noodle = Manager("누들송(면)")
+        self.inter = Manager("인터쉐프")
+        self.daily = Manager("데일리밥")
+
+        self.gama.setWaitingTime(2)
+        self.noodle.setWaitingTime(2)
+        self.inter.setWaitingTime(2)
+        self.daily.setWaitingTime(2)
+
         # 창 사이즈 강제 조정
         MainWindow.setFixedSize(QSize(1000, 600))
 
@@ -44,6 +56,7 @@ class Ui_MainWindow(object):
         self.gamaMenu.setReadOnly(True)
         self.menuVerticalLayout.addWidget(self.gamaMenu)
         self.menuHorizontalLayout.addLayout(self.menuVerticalLayout)
+        self.gamaMenu.setText(Crawling().todayMenu("가마중식"))
 
         # 메뉴 수직2 레이아웃 (누들송 title + 누들송 메뉴 출력)
         self.menuVerticalLayout_2 = QVBoxLayout()
@@ -55,6 +68,7 @@ class Ui_MainWindow(object):
         self.noodleMenu.setReadOnly(True)
         self.menuVerticalLayout_2.addWidget(self.noodleMenu)
         self.menuHorizontalLayout.addLayout(self.menuVerticalLayout_2)
+        self.noodleMenu.setText(Crawling().todayMenu("누들송(면)중식"))
 
         # 메뉴 수직3 레이아웃 (인터쉐프 title + 인터쉐프 메뉴 출력)
         self.menuVerticalLayout_3 = QVBoxLayout()
@@ -66,6 +80,7 @@ class Ui_MainWindow(object):
         self.interMenu.setReadOnly(True)
         self.menuVerticalLayout_3.addWidget(self.interMenu)
         self.menuHorizontalLayout.addLayout(self.menuVerticalLayout_3)
+        self.interMenu.setText(Crawling().todayMenu("인터쉐프중식"))
 
         # 메뉴 수직4 레이아웃 (데일리밥 title + 데일리밥 메뉴 출력)
         self.menuVerticalLayout_4 = QVBoxLayout()
@@ -77,6 +92,7 @@ class Ui_MainWindow(object):
         self.dailyMenu.setReadOnly(True)
         self.menuVerticalLayout_4.addWidget(self.dailyMenu)
         self.menuHorizontalLayout.addLayout(self.menuVerticalLayout_4)
+        self.dailyMenu.setText(Crawling().todayMenu("데일리밥중식"))
 
         # widget1 =============================================================================
         # widget1 설정 (UI상 상단 왼쪽, 식당 내 혼잡도, 식당별 대기 인원)
@@ -124,24 +140,36 @@ class Ui_MainWindow(object):
         # 식당별 대기 인원 타이틀 (Label)
         self.watingTitle = QLabel(self.widget1)
         self.BookminVerticalLayout.addWidget(self.watingTitle)
-        self.watingTitle.setText("식당별 대기 인원")
+        self.watingTitle.setText("식당별 대기자 수 및 예상 대기시간")
 
         # 식당별 대기 인원 출력 (가마, 누들송, 인터쉐프, 데일리밥 순서)
         self.gamaWaiting = QLineEdit(self.widget1)
         self.gamaWaiting.setReadOnly(True)
         self.BookminVerticalLayout.addWidget(self.gamaWaiting)
+        self.gamaWaiting.setText("가마: " + str(self.gama.getWaitingPeople())
+                                 +"명 대기 | 예상 대기시간 " + str(self.gama.getTime()) + "분")
+        self.gamaWaiting.repaint()
 
         self.noodleWaiting = QLineEdit(self.widget1)
         self.noodleWaiting.setReadOnly(True)
         self.BookminVerticalLayout.addWidget(self.noodleWaiting)
+        self.noodleWaiting.setText("누들송(면): " + str(self.noodle.getWaitingPeople())
+                                 + "명 대기 | 예상 대기시간 " + str(self.noodle.getTime()) + "분")
+        self.noodleWaiting.repaint()
 
         self.interWaiting = QLineEdit(self.widget1)
         self.interWaiting.setReadOnly(True)
         self.BookminVerticalLayout.addWidget(self.interWaiting)
+        self.interWaiting.setText("인터쉐프: " + str(self.inter.getWaitingPeople())
+                                 + "명 대기 | 예상 대기시간 " + str(self.inter.getTime()) + "분")
+        self.interWaiting.repaint()
 
         self.dailyWaiting = QLineEdit(self.widget1)
         self.dailyWaiting.setReadOnly(True)
         self.BookminVerticalLayout.addWidget(self.dailyWaiting)
+        self.dailyWaiting.setText("데일리밥: " + str(self.daily.getWaitingPeople())
+                                 + "명 대기 | 예상 대기시간 " + str(self.daily.getTime()) + "분")
+        self.dailyWaiting.repaint()
 
         # widget2 =============================================================================
         # widget2 설정 (UI상 상단 오른쪽, 예약 버튼 모음)
@@ -156,31 +184,98 @@ class Ui_MainWindow(object):
         self.bookBtn = QPushButton(self.widget2)
         self.bookBtn.setSizePolicy(sizePolicy)
         self.btnGridLayout.addWidget(self.bookBtn, 1, 0, 1, 2)
-        self.bookBtn.setText("학교 시설 예약")
+        self.bookBtn.setText("학교 시설 예약하기")
 
         # 가마 버튼
         self.gamaBtn = QPushButton(self.widget2)
         self.gamaBtn.setSizePolicy(sizePolicy)
         self.btnGridLayout.addWidget(self.gamaBtn, 2, 0, 1, 1)
-        self.gamaBtn.setText("가마")
+        self.gamaBtn.setText("가마 번호표 뽑기")
 
         # 누들송 버튼
         self.noodleBtn = QPushButton(self.widget2)
         self.noodleBtn.setSizePolicy(sizePolicy)
         self.btnGridLayout.addWidget(self.noodleBtn, 2, 1, 1, 1)
-        self.noodleBtn.setText("누들송(면)")
+        self.noodleBtn.setText("누들송(면) 번호표 뽑기")
 
         # 인터쉐프 버튼
         self.interBtn = QPushButton(self.widget2)
         self.interBtn.setSizePolicy(sizePolicy)
         self.btnGridLayout.addWidget(self.interBtn, 3, 0, 1, 1)
-        self.interBtn.setText("인터쉐프")
+        self.interBtn.setText("인터쉐프 번호표 뽑기")
 
         # 데일리밥 버튼
         self.dailyBtn = QPushButton(self.widget2)
         self.dailyBtn.setSizePolicy(sizePolicy)
         self.btnGridLayout.addWidget(self.dailyBtn, 3, 1, 1, 1)
-        self.dailyBtn.setText("데일리밥")
+        self.dailyBtn.setText("데일리밥 번호표 뽑기")
+
+        #스타일 시트 설정
+        self.centralwidget.setStyleSheet(
+            "background-color: #282828;"
+            "color: white;"
+            "font-family: 맑은 고딕"
+        )
+        self.complexity.setStyleSheet(
+            "background-color: #004F9F;"
+            "border-radius: 5px"
+        )
+        self.gamaWaiting.setStyleSheet(
+            "background-color: #004F9F;"
+            "border-radius: 5px"
+        )
+        self.noodleWaiting.setStyleSheet(
+            "background-color: #004F9F;"
+            "border-radius: 5px"
+        )
+        self.interWaiting.setStyleSheet(
+            "background-color: #004F9F;"
+            "border-radius: 5px"
+        )
+        self.dailyWaiting.setStyleSheet(
+            "background-color: #004F9F;"
+            "border-radius: 5px"
+        )
+        self.bookBtn.setStyleSheet(
+            "background-color: #004F9F;"
+            "border-radius: 5px"
+        )
+        self.gamaBtn.setStyleSheet(
+            "background-color: #004F9F;"
+            "border-radius: 5px"
+        )
+        self.noodleBtn.setStyleSheet(
+            "background-color: #004F9F;"
+            "border-radius: 5px"
+        )
+        self.interBtn.setStyleSheet(
+            "background-color: #004F9F;"
+            "border-radius: 5px"
+        )
+        self.dailyBtn.setStyleSheet(
+            "background-color: #004F9F;"
+            "border-radius: 5px"
+        )
+        self.gamaMenu.setStyleSheet(
+            "background-color: #FFCE44;"
+            "border-radius: 5px;"
+            "color: black"
+        )
+        self.noodleMenu.setStyleSheet(
+            "background-color: #F3953F;"
+            "border-radius: 5px;"
+            "color: black"
+        )
+        self.interMenu.setStyleSheet(
+            "background-color: #95C23D;"
+            "border-radius: 5px;"
+            "color: black"
+        )
+        self.dailyMenu.setStyleSheet(
+            "background-color: #00A470;"
+            "border-radius: 5px;"
+            "color: black"
+        )
 
         self.bookBtn.clicked.connect(self.bookBtn_clicked)
         self.gamaBtn.clicked.connect(self.gamaBtn_clicked)

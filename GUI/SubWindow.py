@@ -16,7 +16,7 @@ class SubWindow(QDialog):
         btn3 = QPushButton('운동장', self)
         btn4 = QPushButton('체육관', self)
         btn5 = QPushButton('빈 강의실', self)
-        btn6 = QPushButton('6', self)
+        btn6 = QPushButton('기타시설 예약', self)
         btn7 = QPushButton('예약(ON국민)', self)
 
         btn1.clicked.connect(self.clicked_btn1)
@@ -34,7 +34,7 @@ class SubWindow(QDialog):
         btn7.clicked.connect(self.clicked_btn7)
         btn7.setGeometry(400, 440, 400, 100)
 
-        label = QLabel('정보 출력하기', self)
+        label = QLabel('정보 출력', self)
         label.move(200, 100)
         label.setFixedSize(100, 100)
 
