@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="723a68d6-eacf-48d6-ae63-f90c83b9dd6c" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/GUI/foodManager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/main_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/foodManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/foodManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/manage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/가마SubWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/가마SubWindow.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/누들송SubWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/누들송SubWindow.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/데일리밥SubWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/데일리밥SubWindow.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/인터쉐프SubWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/인터쉐프SubWindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/번호표시스템/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/번호표시스템/manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -78,7 +78,6 @@ class 누들송SubWindow(QDialog):
 
         self.setWindowTitle("누들송(면) 예약 창")
 
-    #
     def buttonClicked(self):
 
         button = self.sender()
@@ -86,6 +85,7 @@ class 누들송SubWindow(QDialog):
 
         if key == 'Enter':
             noodle.getNum()
+            self.close()
         elif key == 'C':
             self.display.setText('')
         else:

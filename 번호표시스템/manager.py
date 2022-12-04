@@ -39,6 +39,7 @@ class Manager:
         if self.callNum < self.currentNum:
             self.callNum += 1
             message = str(self.callNum) + "번님 학식이 준비되었습니다."
+            print(message)
             #self.msgObj.sendSMS(message)
         else:
             print("대기자가 없습니다.")

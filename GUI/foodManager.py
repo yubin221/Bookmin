@@ -13,6 +13,3 @@ gama.setWaitingTime(2)
 noodle.setWaitingTime(2)
 inter.setWaitingTime(2)
 daily.setWaitingTime(2)
-
-def buttonClicked2(self):
-    pass

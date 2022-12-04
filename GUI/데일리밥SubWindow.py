@@ -86,6 +86,7 @@ class 데일리밥SubWindow(QDialog):
 
         if key == 'Enter':
             daily.getNum()
+            self.close()
         elif key == 'C':
             self.display.setText('')
         else:

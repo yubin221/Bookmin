@@ -77,7 +77,6 @@ class 인터쉐프SubWindow(QDialog):
 
         self.setWindowTitle("인터쉐프 예약 창")
 
-    #
     def buttonClicked(self):
 
         button = self.sender()
@@ -85,6 +84,7 @@ class 인터쉐프SubWindow(QDialog):
 
         if key == 'Enter':
             inter.getNum()
+            self.close()
         elif key == 'C':
             self.display.setText('')
         else:

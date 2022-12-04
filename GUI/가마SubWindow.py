@@ -77,7 +77,6 @@ class 가마SubWindow(QDialog):
 
         self.setWindowTitle("가마 예약 창")
 
-    #
     def buttonClicked(self):
 
         button = self.sender()
@@ -85,7 +84,7 @@ class 가마SubWindow(QDialog):
 
         if key == 'Enter':
             gama.getNum()
-
+            self.close()
         elif key == 'C':
             self.display.setText('')
         else:

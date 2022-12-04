@@ -1,5 +1,14 @@
-from PyQt5.QtCore import Qt
+import time
 from PyQt5.QtWidgets import *
+from PyQt5.QtCore import QThread, pyqtSignal
+from foodManager import *
+
+class Updator(QThread):
+    finished = pyqtSignal()
+    def run(self):
+        while True:
+            self.finished.emit()
+            time.sleep(5)
 
 class Manage(QWidget):
 
@@ -18,8 +27,10 @@ class Manage(QWidget):
         self.gamaTitle.setText("가마")
 
         self.gamaText = QTextEdit()
+        self.gamaText.setReadOnly(True)
         self.gamaText.setObjectName("gama")
         self.gridLayout.addWidget(self.gamaText, 1, 0, 1, 1)
+        self.gamaText.setText('Test')
 
         self.gamaBtn = QPushButton()
         self.gamaBtn.setObjectName("gamaBtn")
@@ -33,6 +44,7 @@ class Manage(QWidget):
         self.noodleTitle.setText("누들송(면)")
 
         self.noodleText = QTextEdit()
+        self.noodleText.setReadOnly(True)
         self.noodleText.setObjectName("noodle")
         self.gridLayout.addWidget(self.noodleText, 1, 1, 1, 1)
 
@@ -48,6 +60,7 @@ class Manage(QWidget):
         self.interTitle.setText("인터쉐프")
 
         self.interText = QTextEdit()
+        self.interText.setReadOnly(True)
         self.interText.setObjectName("inter")
         self.gridLayout.addWidget(self.interText, 1, 2, 1, 1)
 
@@ -63,6 +76,7 @@ class Manage(QWidget):
         self.dailyTitle.setText("데일리밥")
 
         self.dailyText = QTextEdit()
+        self.dailyText.setReadOnly(True)
         self.dailyText.setObjectName("daily")
         self.gridLayout.addWidget(self.dailyText, 1, 3, 1, 1)
 
@@ -71,24 +85,32 @@ class Manage(QWidget):
         self.gridLayout.addWidget(self.dailyBtn, 2, 3, 1, 1)
         self.dailyBtn.setText("데일리밥 호출")
 
+        # 연결
         self.gamaBtn.clicked.connect(self.buttonClicked)
         self.noodleBtn.clicked.connect(self.buttonClicked)
         self.interBtn.clicked.connect(self.buttonClicked)
         self.dailyBtn.clicked.connect(self.buttonClicked)
 
+        self.updator = Updator()
+        self.updator.finished.connect(self.updateText)
+        self.updator.start()
+
     def buttonClicked(self):
         button = self.sender()
         key = button.text()
         print(key)
-        """
-        if key == '=':
-            result = str(eval(self.display.text()))
-            self.display.setText(result)
-        elif key == 'C':
-            self.display.setText('')
-        else:
-            self.display.setText(self.display.text() + key)
-        """
+
+        if key == '가마 호출':
+            gama.call()
+        elif key == '누들송 호출':
+            noodle.call()
+        elif key == '인터쉐프 호출':
+            inter.call()
+        elif key == '데일리밥 호출':
+            daily.call()
+
+    def updateText(self):
+        self.gamaText.setText('마지막 번호표: ' + str(gama.callNumber()))
 
 
 if __name__ == '__main__':
