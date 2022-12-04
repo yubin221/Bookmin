@@ -24,7 +24,6 @@ class Worker(QThread):
     def run(self):
         while True:
             data = next(self.p.getPerson())
-            print(data)
             self.finished.emit(data)
 
 class Worker2(QThread):
@@ -32,7 +31,7 @@ class Worker2(QThread):
     def run(self):
         while True:
             self.finished.emit()
-            time.sleep(5)
+            time.sleep(1)
 
 class Ui_MainWindow(QWidget):
     def setupUi(self, MainWindow):
@@ -221,6 +220,21 @@ class Ui_MainWindow(QWidget):
         self.dailyBtn.setText("데일리밥 번호표 뽑기")
 
         #스타일 시트 설정
+        self.foodList = ['gama', 'noodle', 'inter', 'daily']
+
+        for i in self.foodList:
+            command1 = eval('self.' + i + 'Waiting')
+            command2 = eval('self.' + i + 'Btn')
+
+            command1.setStyleSheet(
+                "background-color: #004F9F;"
+                "border-radius: 5px"
+            )
+            command2.setStyleSheet(
+                "background-color: #004F9F;"
+                "border-radius: 5px"
+            )
+
         self.centralwidget.setStyleSheet(
             "background-color: #282828;"
             "color: white;"
@@ -230,39 +244,7 @@ class Ui_MainWindow(QWidget):
             "background-color: #004F9F;"
             "border-radius: 5px"
         )
-        self.gamaWaiting.setStyleSheet(
-            "background-color: #004F9F;"
-            "border-radius: 5px"
-        )
-        self.noodleWaiting.setStyleSheet(
-            "background-color: #004F9F;"
-            "border-radius: 5px"
-        )
-        self.interWaiting.setStyleSheet(
-            "background-color: #004F9F;"
-            "border-radius: 5px"
-        )
-        self.dailyWaiting.setStyleSheet(
-            "background-color: #004F9F;"
-            "border-radius: 5px"
-        )
         self.bookBtn.setStyleSheet(
-            "background-color: #004F9F;"
-            "border-radius: 5px"
-        )
-        self.gamaBtn.setStyleSheet(
-            "background-color: #004F9F;"
-            "border-radius: 5px"
-        )
-        self.noodleBtn.setStyleSheet(
-            "background-color: #004F9F;"
-            "border-radius: 5px"
-        )
-        self.interBtn.setStyleSheet(
-            "background-color: #004F9F;"
-            "border-radius: 5px"
-        )
-        self.dailyBtn.setStyleSheet(
             "background-color: #004F9F;"
             "border-radius: 5px"
         )
@@ -321,7 +303,6 @@ class Ui_MainWindow(QWidget):
     def buttonClicked(self):
         sen = self.sender()
         key = sen.text()
-        print(key)
 
         if key == '학교 시설 예약하기':
             subwin = SubWindow()
@@ -341,8 +322,7 @@ class Ui_MainWindow(QWidget):
         elif key == '데일리밥 번호표 뽑기':
             데일리밥subwin = 데일리밥SubWindow()
             데일리밥subwin.showModal()
-        else:
-            pass
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
