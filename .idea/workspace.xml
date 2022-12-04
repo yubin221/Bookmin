@@ -3,13 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="723a68d6-eacf-48d6-ae63-f90c83b9dd6c" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/GUI구현.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/GUI구현.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/SubWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/SubWindow.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/main_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/가마SubWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/가마SubWindow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/번호표 시스템/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/번호표시스템/manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/번호표 시스템/twilioTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/번호표시스템/twilioTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/오늘의 메뉴/crawlingclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/오늘의메뉴/crawlingclass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Person/bookminPerson.py" beforeDir="false" afterPath="$PROJECT_DIR$/Person/bookminPerson.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/번호표시스템/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/번호표시스템/manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,9 +145,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main_window" />
+        <item itemvalue="Python.bookminPerson (1)" />
         <item itemvalue="Python.crawlingclass" />
         <item itemvalue="Python.manager" />
-        <item itemvalue="Python.bookminPerson (1)" />
         <item itemvalue="Python.printPerson" />
       </list>
     </recent_temporary>
