@@ -1,5 +1,3 @@
-import time
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QSize, QThread, pyqtSignal
 from PyQt5.QtWidgets import *
@@ -9,10 +7,10 @@ from 가마SubWindow import 가마SubWindow
 from 누들송SubWindow import 누들송SubWindow
 from 인터쉐프SubWindow import 인터쉐프SubWindow
 from 데일리밥SubWindow import 데일리밥SubWindow
-from multiprocessing import Process
-from threading import Thread
+from manage import Manage
 
-import sys, os
+import sys
+import os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from Person.bookminPerson import Person
 from 번호표시스템.manager import *
@@ -28,7 +26,7 @@ class Worker(QThread):
             print(data)
             self.finished.emit(data)
 
-class Ui_MainWindow(object):
+class Ui_MainWindow(QWidget):
     def setupUi(self, MainWindow):
         self.gama = Manager("가마")
         self.noodle = Manager("누들송(면)")
@@ -194,8 +192,14 @@ class Ui_MainWindow(object):
         # 학교 시설 예약 버튼
         self.bookBtn = QPushButton(self.widget2)
         self.bookBtn.setSizePolicy(sizePolicy)
-        self.btnGridLayout.addWidget(self.bookBtn, 1, 0, 1, 2)
+        self.btnGridLayout.addWidget(self.bookBtn, 1, 0, 1, 1)
         self.bookBtn.setText("학교 시설 예약하기")
+
+        # 관리자용 GUI 버튼
+        self.foodBtn = QPushButton(self.widget2)
+        self.foodBtn.setSizePolicy(sizePolicy)
+        self.btnGridLayout.addWidget(self.foodBtn, 1, 1, 1, 1)
+        self.foodBtn.setText("관리자용 GUI")
 
         # 가마 버튼
         self.gamaBtn = QPushButton(self.widget2)
@@ -267,6 +271,10 @@ class Ui_MainWindow(object):
             "background-color: #004F9F;"
             "border-radius: 5px"
         )
+        self.foodBtn.setStyleSheet(
+            "background-color: #004F9F;"
+            "border-radius: 5px"
+        )
         self.gamaMenu.setStyleSheet(
             "background-color: #FFCE44;"
             "border-radius: 5px;"
@@ -288,11 +296,12 @@ class Ui_MainWindow(object):
             "color: black"
         )
 
-        self.bookBtn.clicked.connect(self.bookBtn_clicked)
-        self.gamaBtn.clicked.connect(self.gamaBtn_clicked)
-        self.noodleBtn.clicked.connect(self.noodleBtn_clicked)
-        self.interBtn.clicked.connect(self.interBtn_clicked)
-        self.dailyBtn.clicked.connect(self.dailyBtn_clicked)
+        self.bookBtn.clicked.connect(self.buttonClicked)
+        self.gamaBtn.clicked.connect(self.buttonClicked)
+        self.noodleBtn.clicked.connect(self.buttonClicked)
+        self.interBtn.clicked.connect(self.buttonClicked)
+        self.dailyBtn.clicked.connect(self.buttonClicked)
+        self.foodBtn.clicked.connect(self.buttonClicked)
 
         MainWindow.setWindowTitle("Bookmin")
         MainWindow.setCentralWidget(self.centralwidget)
@@ -300,49 +309,31 @@ class Ui_MainWindow(object):
     def update_Complexity(self, data):
         self.complexity.setText(data)
 
-    def bookBtn_clicked(self):
-        subwin = SubWindow()
-        r = subwin.showModal()
+    def buttonClicked(self):
+        sen = self.sender()
+        key = sen.text()
+        print(key)
 
-        if r:
-            text = subwin.edit.text()
-            self.label.setText(text)
-
-    # 가마 예약 버튼을 누르면 실행되는 새로운 창
-    def gamaBtn_clicked(self):
-        가마subwin = 가마SubWindow()
-        r = 가마subwin.showModal()
-
-        if r:
-            text = 가마subwin.edit.text()
-            self.label.setText(text)
-
-    # 누들송 예약 버튼을 누르면 실행되는 새로운 창
-    def noodleBtn_clicked(self):
-        누들송subwin = 누들송SubWindow()
-        r = 누들송subwin.showModal()
-
-        if r:
-            text = 누들송subwin.edit.text()
-            self.label.setText(text)
-
-    # 인터쉐프 예약 버튼을 누르면 실행되는 새로운 창
-    def interBtn_clicked(self):
-        인터쉐프subwin = 인터쉐프SubWindow()
-        r = 인터쉐프subwin.showModal()
-
-        if r:
-            text = 인터쉐프subwin.edit.text()
-            self.label.setText(text)
-
-    # 데일리밥 예약 버튼을 누르면 실행되는 새로운 창
-    def dailyBtn_clicked(self):
-        데일리밥subwin = 데일리밥SubWindow()
-        r = 데일리밥subwin.showModal()
-
-        if r:
-            text = 데일리밥subwin.edit.text()
-            self.label.setText(text)
+        if key == '학교 시설 예약하기':
+            subwin = SubWindow()
+            subwin.showModal()
+        elif key == '관리자용 GUI':
+            self.manage = Manage()
+            self.manage.show()
+        elif key == '가마 번호표 뽑기':
+            가마subwin = 가마SubWindow()
+            가마subwin.showModal()
+        elif key == '누들송(면) 번호표 뽑기':
+            누들송subwin = 누들송SubWindow()
+            누들송subwin.showModal()
+        elif key == '인터쉐프 번호표 뽑기':
+            인터쉐프subwin = 인터쉐프SubWindow()
+            인터쉐프subwin.showModal()
+        elif key == '데일리밥 번호표 뽑기':
+            데일리밥subwin = 데일리밥SubWindow()
+            데일리밥subwin.showModal()
+        else:
+            pass
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

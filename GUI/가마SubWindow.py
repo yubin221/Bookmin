@@ -1,5 +1,6 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QLayout, QGridLayout, QDialog, QLabel, QSizePolicy, QLineEdit, QToolButton
+from typing import TYPE_CHECKING
 
 class Button(QToolButton):
 
@@ -83,7 +84,9 @@ class 가마SubWindow(QDialog):
         key = button.text()
 
         if key == 'Enter':
-            self.gama.getNum()
+            #
+            pass
+
         elif key == 'C':
             self.display.setText('')
         else:

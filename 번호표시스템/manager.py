@@ -7,7 +7,6 @@ class Manager:
         self.currentNum = 0  # 현재 번호표
         self.callNum = 0  # 불러야하는 번호표
         self.waitingTime = 0  # 예상 대기시간 (단위 : 분)
-        self.menu = dict()
 
     # 1명당 대기 시간 설정
     def setWaitingTime(self, waitingTime):

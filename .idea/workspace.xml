@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="723a68d6-eacf-48d6-ae63-f90c83b9dd6c" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/GUI/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Bookmin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Bookmin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/GUI구현.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/SubWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/SubWindow.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/main_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Person/bookminPerson.py" beforeDir="false" afterPath="$PROJECT_DIR$/Person/bookminPerson.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/가마SubWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/가마SubWindow.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/번호표시스템/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/번호표시스템/manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,10 +38,36 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../국민대학교/소프트웨어프로젝트2/14" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../국민대학교/소프트웨어프로젝트2/07" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\OneDrive - KookminUNIV\바탕 화면\2022-02\Bookmin\GUI" />
+    </key>
+  </component>
   <component name="RunManager" selected="Python.main_window">
+    <configuration name="가마SubWindow" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Bookmin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/가마SubWindow.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="bookminPerson (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Bookmin" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -100,7 +131,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Bookmin" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -108,32 +139,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/번호표시스템" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/번호표시스템/manager.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="printPerson" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Bookmin" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Person" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Person/printPerson.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/manage.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -145,10 +155,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main_window" />
+        <item itemvalue="Python.manage" />
+        <item itemvalue="Python.가마SubWindow" />
         <item itemvalue="Python.bookminPerson (1)" />
         <item itemvalue="Python.crawlingclass" />
-        <item itemvalue="Python.manager" />
-        <item itemvalue="Python.printPerson" />
       </list>
     </recent_temporary>
   </component>
