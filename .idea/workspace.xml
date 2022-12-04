@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="723a68d6-eacf-48d6-ae63-f90c83b9dd6c" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/foodManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/foodManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/main_window.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/가마SubWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/가마SubWindow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/누들송SubWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/누들송SubWindow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/데일리밥SubWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/데일리밥SubWindow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/인터쉐프SubWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/인터쉐프SubWindow.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/번호표시스템/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/번호표시스템/manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,27 +84,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="crawlingclass" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Bookmin" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/오늘의 메뉴" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/오늘의 메뉴/crawlingclass.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="main_window" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Bookmin" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -151,13 +126,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Bookmin" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/번호표시스템" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/번호표시스템/manager.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main_window" />
         <item itemvalue="Python.manage" />
+        <item itemvalue="Python.manager" />
         <item itemvalue="Python.가마SubWindow" />
         <item itemvalue="Python.bookminPerson (1)" />
-        <item itemvalue="Python.crawlingclass" />
       </list>
     </recent_temporary>
   </component>
