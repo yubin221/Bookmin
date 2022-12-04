@@ -5,5 +5,12 @@
     <orderEntry type="jdk" jdkName="Python 3.7 (base)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="14" />
+    <orderEntry type="module" module-name="11" />
+    <orderEntry type="module" module-name="12" />
+    <orderEntry type="module" module-name="13" />
+    <orderEntry type="module" module-name="10" />
+    <orderEntry type="module" module-name="09" />
+    <orderEntry type="module" module-name="08" />
+    <orderEntry type="module" module-name="07" />
   </component>
 </module>

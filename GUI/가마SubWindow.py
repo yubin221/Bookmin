@@ -1,5 +1,6 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QLayout, QGridLayout, QDialog, QLabel, QSizePolicy, QLineEdit, QToolButton
+from foodManager import *
 
 class Button(QToolButton):
 
@@ -76,14 +77,14 @@ class 가마SubWindow(QDialog):
 
         self.setWindowTitle("가마 예약 창")
 
-    #
     def buttonClicked(self):
 
         button = self.sender()
         key = button.text()
 
         if key == 'Enter':
-            self.gama.getNum()
+            gama.getNum()
+            self.close()
         elif key == 'C':
             self.display.setText('')
         else:

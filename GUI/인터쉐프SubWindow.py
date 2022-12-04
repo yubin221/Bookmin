@@ -1,6 +1,6 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QLayout, QGridLayout, QDialog, QLabel, QSizePolicy, QLineEdit, QToolButton
-
+from foodManager import *
 
 class Button(QToolButton):
 
@@ -77,15 +77,14 @@ class 인터쉐프SubWindow(QDialog):
 
         self.setWindowTitle("인터쉐프 예약 창")
 
-    #
     def buttonClicked(self):
 
         button = self.sender()
         key = button.text()
 
         if key == 'Enter':
-            result = str(eval(self.display.text()))
-            self.display.setText(result)
+            inter.getNum()
+            self.close()
         elif key == 'C':
             self.display.setText('')
         else:

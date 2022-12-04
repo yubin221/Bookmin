@@ -7,7 +7,6 @@ class Manager:
         self.currentNum = 0  # 현재 번호표
         self.callNum = 0  # 불러야하는 번호표
         self.waitingTime = 0  # 예상 대기시간 (단위 : 분)
-        self.menu = dict()
 
     # 1명당 대기 시간 설정
     def setWaitingTime(self, waitingTime):
@@ -40,6 +39,7 @@ class Manager:
         if self.callNum < self.currentNum:
             self.callNum += 1
             message = str(self.callNum) + "번님 학식이 준비되었습니다."
+            print(message)
             #self.msgObj.sendSMS(message)
         else:
             print("대기자가 없습니다.")

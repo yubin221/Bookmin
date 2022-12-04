@@ -5,7 +5,7 @@ class SubWindow(QDialog):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('학교시설 Sub Window')
-        self.setGeometry(650, 200, 850, 600)
+        self.setFixedSize(QSize(850, 600))
         self.initUI()
 
     def initUI(self):
@@ -89,7 +89,7 @@ class SubWindow(QDialog):
 
     def clicked_btn7(self):
         self.dialog = QDialog()
-        self.dialog.setWindowTitle(" ON 국민 로그인")
+        self.dialog.setWindowTitle("ON 국민 로그인")
         self.dialog.setWindowModality(Qt.ApplicationModal)
         self.dialog.resize(800, 500)
         self.dialog.show()

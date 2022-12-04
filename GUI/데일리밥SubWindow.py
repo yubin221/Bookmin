@@ -1,9 +1,6 @@
-import shelve
-import pickle
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QLayout, QGridLayout, QDialog, QLabel, QSizePolicy, QLineEdit, QToolButton
-#from 식당용UI import PasswordDB
-
+from foodManager import *
 
 class Button(QToolButton):
 
@@ -88,8 +85,8 @@ class 데일리밥SubWindow(QDialog):
         key = button.text()
 
         if key == 'Enter':
-            result = str(eval(self.display.text()))
-            self.display.setText(result)
+            daily.getNum()
+            self.close()
         elif key == 'C':
             self.display.setText('')
         else:
