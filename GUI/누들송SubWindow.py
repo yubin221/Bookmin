@@ -1,6 +1,6 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QLayout, QGridLayout, QDialog, QLabel, QSizePolicy, QLineEdit, QToolButton
-
+from foodManager import *
 
 class Button(QToolButton):
 
@@ -85,8 +85,7 @@ class 누들송SubWindow(QDialog):
         key = button.text()
 
         if key == 'Enter':
-            result = str(eval(self.display.text()))
-            self.display.setText(result)
+            noodle.getNum()
         elif key == 'C':
             self.display.setText('')
         else:

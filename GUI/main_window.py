@@ -1,3 +1,5 @@
+import time
+
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QSize, QThread, pyqtSignal
 from PyQt5.QtWidgets import *
@@ -8,13 +10,12 @@ from 누들송SubWindow import 누들송SubWindow
 from 인터쉐프SubWindow import 인터쉐프SubWindow
 from 데일리밥SubWindow import 데일리밥SubWindow
 from manage import Manage
+from foodManager import *
 
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from Person.bookminPerson import Person
-from 번호표시스템.manager import *
-from 번호표시스템.twilioTest import *
 from 오늘의메뉴.crawlingclass import *
 
 class Worker(QThread):
@@ -26,17 +27,15 @@ class Worker(QThread):
             print(data)
             self.finished.emit(data)
 
+class Worker2(QThread):
+    finished = pyqtSignal()
+    def run(self):
+        while True:
+            self.finished.emit()
+            time.sleep(5)
+
 class Ui_MainWindow(QWidget):
     def setupUi(self, MainWindow):
-        self.gama = Manager("가마")
-        self.noodle = Manager("누들송(면)")
-        self.inter = Manager("인터쉐프")
-        self.daily = Manager("데일리밥")
-
-        self.gama.setWaitingTime(2)
-        self.noodle.setWaitingTime(2)
-        self.inter.setWaitingTime(2)
-        self.daily.setWaitingTime(2)
 
         # 창 사이즈 강제 조정
         MainWindow.setFixedSize(QSize(1000, 600))
@@ -155,30 +154,26 @@ class Ui_MainWindow(QWidget):
         self.gamaWaiting = QLineEdit(self.widget1)
         self.gamaWaiting.setReadOnly(True)
         self.BookminVerticalLayout.addWidget(self.gamaWaiting)
-        self.gamaWaiting.setText("가마: " + str(self.gama.getWaitingPeople())
-                                 +"명 대기 | 예상 대기시간 " + str(self.gama.getTime()) + "분")
-        self.gamaWaiting.repaint()
+        self.gamaWaiting.setText("가마: " + str(gama.getWaitingPeople())
+                                 +"명 대기 | 예상 대기시간 " + str(gama.getTime()) + "분")
 
         self.noodleWaiting = QLineEdit(self.widget1)
         self.noodleWaiting.setReadOnly(True)
         self.BookminVerticalLayout.addWidget(self.noodleWaiting)
-        self.noodleWaiting.setText("누들송(면): " + str(self.noodle.getWaitingPeople())
-                                 + "명 대기 | 예상 대기시간 " + str(self.noodle.getTime()) + "분")
-        self.noodleWaiting.repaint()
+        self.noodleWaiting.setText("누들송(면): " + str(noodle.getWaitingPeople())
+                                 + "명 대기 | 예상 대기시간 " + str(noodle.getTime()) + "분")
 
         self.interWaiting = QLineEdit(self.widget1)
         self.interWaiting.setReadOnly(True)
         self.BookminVerticalLayout.addWidget(self.interWaiting)
-        self.interWaiting.setText("인터쉐프: " + str(self.inter.getWaitingPeople())
-                                 + "명 대기 | 예상 대기시간 " + str(self.inter.getTime()) + "분")
-        self.interWaiting.repaint()
+        self.interWaiting.setText("인터쉐프: " + str(inter.getWaitingPeople())
+                                 + "명 대기 | 예상 대기시간 " + str(inter.getTime()) + "분")
 
         self.dailyWaiting = QLineEdit(self.widget1)
         self.dailyWaiting.setReadOnly(True)
         self.BookminVerticalLayout.addWidget(self.dailyWaiting)
-        self.dailyWaiting.setText("데일리밥: " + str(self.daily.getWaitingPeople())
-                                 + "명 대기 | 예상 대기시간 " + str(self.daily.getTime()) + "분")
-        self.dailyWaiting.repaint()
+        self.dailyWaiting.setText("데일리밥: " + str(daily.getWaitingPeople())
+                                 + "명 대기 | 예상 대기시간 " + str(daily.getTime()) + "분")
 
         # widget2 =============================================================================
         # widget2 설정 (UI상 상단 오른쪽, 예약 버튼 모음)
@@ -303,11 +298,25 @@ class Ui_MainWindow(QWidget):
         self.dailyBtn.clicked.connect(self.buttonClicked)
         self.foodBtn.clicked.connect(self.buttonClicked)
 
+        self.worker2 = Worker2()
+        self.worker2.finished.connect(self.update)
+        self.worker2.start()
+
         MainWindow.setWindowTitle("Bookmin")
         MainWindow.setCentralWidget(self.centralwidget)
 
     def update_Complexity(self, data):
         self.complexity.setText(data)
+
+    def update(self):
+        self.gamaWaiting.setText("가마: " + str(gama.getWaitingPeople())
+                                 + "명 대기 | 예상 대기시간 " + str(gama.getTime()) + "분")
+        self.noodleWaiting.setText("누들송(면): " + str(noodle.getWaitingPeople())
+                                   + "명 대기 | 예상 대기시간 " + str(noodle.getTime()) + "분")
+        self.interWaiting.setText("인터쉐프: " + str(inter.getWaitingPeople())
+                                  + "명 대기 | 예상 대기시간 " + str(inter.getTime()) + "분")
+        self.dailyWaiting.setText("데일리밥: " + str(daily.getWaitingPeople())
+                                  + "명 대기 | 예상 대기시간 " + str(daily.getTime()) + "분")
 
     def buttonClicked(self):
         sen = self.sender()
