@@ -1,3 +1,5 @@
+import time
+
 import serial
 from multiprocessing import Process
 
@@ -19,19 +21,10 @@ class Person:
                 self.congestionLevel = '혼잡'
 
             self.complexityLevel = "식당내 인원수: " + self.var + "혼잡도: " + self.congestionLevel
-            #print(self.complexityLevel)
-
-    def printPerson(self):
-        print(self.complexityLevel)
-        return self.complexityLevel
+            yield self.complexityLevel
 
 if __name__ == '__main__':
     p = Person()
-
-    p1 = Process(target=p.getPerson())
-    p1.start
-    p1.join
-
-    p2 = Process(target=p.printPerson())
-    p2.start()
-    p2.join
+    while True:
+        print(next(p.getPerson()))
+        time.sleep(5)

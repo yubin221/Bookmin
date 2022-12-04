@@ -1,6 +1,9 @@
+import time
+
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import QSize
+from PyQt5.QtCore import QSize, QThread, pyqtSignal
 from PyQt5.QtWidgets import *
+
 from SubWindow import SubWindow
 from 가마SubWindow import 가마SubWindow
 from 누들송SubWindow import 누들송SubWindow
@@ -15,6 +18,15 @@ from Person.bookminPerson import Person
 from 번호표시스템.manager import *
 from 번호표시스템.twilioTest import *
 from 오늘의메뉴.crawlingclass import *
+
+class Worker(QThread):
+    finished = pyqtSignal(str)
+    p = Person()
+    def run(self):
+        while True:
+            data = next(self.p.getPerson())
+            print(data)
+            self.finished.emit(data)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -126,16 +138,15 @@ class Ui_MainWindow(object):
         self.complexityTitle.setText("식당 내 혼잡도")
 
         # 식당 내 혼잡도 출력 (TextEdit)
-        self.p = Person()
-
         self.complexity = QTextEdit(self.widget1)
         self.complexity.setLineWidth(1)
         self.complexity.setReadOnly(True)
         self.BookminVerticalLayout.addWidget(self.complexity)
+        self.complexity.setText('데이터 갱신중')
 
-        self.complexity.setText(self.p.printPerson())
-
-        self.complexity.repaint()
+        self.worker = Worker()
+        self.worker.finished.connect(self.update_Complexity)
+        self.worker.start()
 
         # 식당별 대기 인원 타이틀 (Label)
         self.watingTitle = QLabel(self.widget1)
@@ -285,6 +296,9 @@ class Ui_MainWindow(object):
 
         MainWindow.setWindowTitle("Bookmin")
         MainWindow.setCentralWidget(self.centralwidget)
+
+    def update_Complexity(self, data):
+        self.complexity.setText(data)
 
     def bookBtn_clicked(self):
         subwin = SubWindow()
