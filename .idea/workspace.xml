@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="723a68d6-eacf-48d6-ae63-f90c83b9dd6c" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ON국민예약/onKookminBookGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/ON국민예약/onKookminBookGUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Person/bookminPerson.py" beforeDir="false" afterPath="$PROJECT_DIR$/Person/bookminPerson.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/번호표시스템/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/번호표시스템/manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/번호표시스템/twilioTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/번호표시스템/twilioTest.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

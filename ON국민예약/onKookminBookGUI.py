@@ -129,7 +129,7 @@ class UnivBook(QWidget):
             self.okb.loginOnkookmin(self.okb.driver, self.idEdit.text(), self.pwEdit.text())
             self.okb.toPortal(self.okb.driver)
             self.okb.bookTime(self.okb.driver, int(self.yearEdit.text()), int(self.monthEdit.text()),int(self.dayEdit.text()), indexList, self.purposeEdit.text())
-            self.okb.quitDriver()
+            #self.okb.quitDriver()
 
 
 if __name__ == '__main__':
