@@ -4,7 +4,7 @@ from twilio.rest import Client
 class TwilioSMS:
     def __init__(self):
         account_sid = 'AC0338ae515fa6d6a24ee96936886c4933'
-        auth_token = '6ea739d71bec1d28b3141b4f8d43b3ae'
+        auth_token = 'deedb18da188ba51afd96c970035a86c'
         self.client = Client(account_sid, auth_token)
 
     def sendSMS(self,msg):

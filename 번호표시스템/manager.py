@@ -2,7 +2,7 @@ from 번호표시스템.twilioTest import TwilioSMS
 
 class Manager:
     def __init__(self, name):
-        #self.msgObj = TwilioSMS()
+        self.msgObj = TwilioSMS()
         self.name = name
         self.currentNum = 0  # 현재 번호표
         self.callNum = 0  # 마지막으로 부른 번호표
@@ -49,13 +49,13 @@ class Manager:
             self.callNum += 1
             message = str(self.callNum) + "번님 " + str(self.name) + " 학식이 준비되었습니다."
             print(message)
-            #self.msgObj.sendSMS(message)
+            self.msgObj.sendSMS(message)
         else:
             print("대기자가 없습니다.")
 
     def requestWaitingPeople(self):
         message = "현재 대기자수는 " + str(self.getWaitingPeople()) +"명입니다."
-        #self.msgObj.sendSMS(message)
+        self.msgObj.sendSMS(message)
 
 if __name__ == "__main__":
     gome = Manager("고메")

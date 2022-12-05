@@ -4,7 +4,7 @@ import serial
 class Person:
 
     def __init__(self):
-        self.ser = serial.Serial("COM4", 1000000)
+        self.ser = serial.Serial("COM3", 1000000)
         self.complexityLevel = '데이터 갱신중'
 
     def getPerson(self):
