@@ -1,10 +1,15 @@
 from PyQt5.QtWidgets import *
 from PyQt5.Qt import *
 
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+from ON국민예약.onKookminBookGUI import *
+
 class SubWindow(QDialog):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle('학교시설 Sub Window')
+        self.setWindowTitle('학교시설 예약 시스템')
         self.setFixedSize(QSize(850, 600))
         self.initUI()
 
@@ -34,9 +39,8 @@ class SubWindow(QDialog):
         btn7.clicked.connect(self.clicked_btn7)
         btn7.setGeometry(400, 440, 400, 100)
 
-        label = QLabel('정보 출력', self)
-        label.move(200, 100)
-        label.setFixedSize(100, 100)
+        label = QLabel('학교시설 예약 시스템', self)
+        label.move(130, 260)
 
         layout.addWidget(label)
 
@@ -60,11 +64,8 @@ class SubWindow(QDialog):
         self.dialog.show()
 
     def clicked_btn3(self):
-        self.dialog = QDialog()
-        self.dialog.setWindowTitle("운동장 예약")
-        self.dialog.setWindowModality(Qt.ApplicationModal)
-        self.dialog.resize(800, 500)
-        self.dialog.show()
+        self.ub = UnivBook()
+        self.ub.show()
 
     def clicked_btn4(self):
         self.dialog = QDialog()
@@ -88,11 +89,8 @@ class SubWindow(QDialog):
         self.dialog.show()
 
     def clicked_btn7(self):
-        self.dialog = QDialog()
-        self.dialog.setWindowTitle("ON 국민 로그인")
-        self.dialog.setWindowModality(Qt.ApplicationModal)
-        self.dialog.resize(800, 500)
-        self.dialog.show()
+        self.ub = UnivBook()
+        self.ub.show()
 
 
     def showModal(self):
